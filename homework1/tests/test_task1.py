@@ -4,7 +4,7 @@
  Date: 9/19/25
 
  TASK 1 TEST:
-    Sets up a pytest test case that verifies the output of task.py.
+    Sets up a pytest test case that verifies the output of task1.py.
 '''
 
 import pytest

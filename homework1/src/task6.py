@@ -3,7 +3,7 @@
  Course: CS4200
  Date: 9/19/25
 
- TASK 5:
+ TASK 6:
     Read task6_read_me.txt and count the number of words in it
 '''
 

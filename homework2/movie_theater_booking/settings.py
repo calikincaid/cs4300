@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-1l_l#@1&s+m1r_z_@tf^c#%aev@n9ugf%^dw9u+^ci1ynozztg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"] # THIS WILDCARD ALLOWS ALL HOSTS FOR TESTING PURPOSES
+ALLOWED_HOSTS = [
+    "editor-cs4300advancedswe-19.devedu.io",
+    "app-cs4300advancedswe-19.devedu.io",
+    "localhost", "127.0.0.1"
+] 
 
 
 # Application definition
@@ -37,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookings' # ADDED THE BOOKINGS APP TO INSTALLED APPS
+    'rest_framework',
+    'bookings.apps.BookingsConfig' # ADDED THE BOOKINGS APP TO INSTALLED APPS
 ]
 
 MIDDLEWARE = [
@@ -106,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'MST'
 
 USE_I18N = True
 
@@ -122,3 +127,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# SETTING TO AVOID CSRF ERRORS https://docs.djangoproject.com/en/5.2/ref/settings/#csrf-trusted-origins
+CSRF_TRUSTED_ORIGINS = [
+    "https://app-cs4300advancedswe-19.devedu.io",
+    "https://editor-cs4300advancedswe-19.devedu.io",
+]

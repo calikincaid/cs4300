@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'bookings.apps.BookingsConfig' # ADDED THE BOOKINGS APP TO INSTALLED APPS
+    'bookings' # ADDED THE BOOKINGS APP TO INSTALLED APPS
 ]
 
 MIDDLEWARE = [

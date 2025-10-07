@@ -26,10 +26,11 @@ SECRET_KEY = 'django-insecure-1l_l#@1&s+m1r_z_@tf^c#%aev@n9ugf%^dw9u+^ci1ynozztg
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "localhost", "127.0.0.1",
+    ".onrender.com",                            
     "editor-cs4300advancedswe-19.devedu.io",
     "app-cs4300advancedswe-19.devedu.io",
-    "localhost", "127.0.0.1"
-] 
+]
 
 
 # Application definition
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,17 +123,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# --- Render / proxy ---
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 
 # SETTING TO AVOID CSRF ERRORS https://docs.djangoproject.com/en/5.2/ref/settings/#csrf-trusted-origins
 CSRF_TRUSTED_ORIGINS = [
     "https://app-cs4300advancedswe-19.devedu.io",
     "https://editor-cs4300advancedswe-19.devedu.io",
+    "https://cs4300-y9l7.onrender.com/"
 ]

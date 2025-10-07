@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: movie-theater-booking
+    env: python
+    plan: free
+    buildCommand: ./render_build.sh
+    startCommand: gunicorn movie_theater_booking.wsgi:application --preload
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.5
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: RENDER
+        value: "true"
+    healthCheckPath: /
+databases:
+  - name: movie-db
+    plan: free

@@ -46,3 +46,6 @@ I don't know if what I have is good enough to proceed or if there is more comple
 ## 3.4 Creating an Attractive User Interface
 I'm just going to use plain Bootstrap to get everything going at a bare minimum for POC.
 
+## Super user sign-in credentials 
+USERNAME: admin
+PASSWORD: admin

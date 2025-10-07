@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1l_l#@1&s+m1r_z_@tf^c#%aev@n9ugf%^dw9u+^ci1ynozztg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "editor-cs4300advancedswe-19.devedu.io",
